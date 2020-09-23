@@ -14,7 +14,8 @@ namespace Role {
         void PrintBalance();
 
     private:
-        void StartWaitMessage();
+        void WaitMessageFromClient();
+        void SendMessageToClient();
     };
 }
 #endif

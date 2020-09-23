@@ -5,7 +5,10 @@
 #ifndef _Constant_
 #define _Constant_
 
-LPCTSTR lpszPipename = TEXT("\\\\.\\pipe\\mynamedpipe");
+#define BUFSIZE 512
+
+const LPCTSTR ToServerPipeNamed = TEXT("\\\\.\\pipe\\namedpipeToServer");
+const LPCTSTR ToClientPipeNamed = TEXT("\\\\.\\pipe\\namedpipeToClient");
 
 const std::string clientCommand = "client";
 const std::string serverCommand = "server";

@@ -8,18 +8,25 @@
 
 int main(int argc, char* argv[])
 {
+    if (argc < 2) {
+        std::cout << "Less the Parameter \"server\" Or \"client\"";
+        return 1;
+    }
+    std::string inputCommandForInit(argv[1]);           
 
-    Role::IRole* server = new Role::Server();
-    server->PrintBalance();
-    delete server;
-
-    Role::IRole* client = new Role::Client();
-    client->PrintBalance();
-
-
-
-    delete client;
-
+    if (serverCommand.compare(inputCommandForInit) == 0) {
+        Role::IRole* server = new Role::Server();
+        delete server;
+    }
+    else if (clientCommand.compare(inputCommandForInit) == 0) {
+        Role::IRole* client = new Role::Client();
+        client->PrintBalance();
+        delete client;
+    }
+    else {
+        std::cout << "Parameter should be \"server\" Or \"client\"";
+    }
+    return 0;
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu

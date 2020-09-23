@@ -14,7 +14,8 @@ namespace Role {
         void PrintBalance();
     private:
         void WaitUserInput();
-        void SendMessageToServer();
+        void SendMessageToServer(std::string message);
+        void WaitServerResponse();
     };
 }
 
