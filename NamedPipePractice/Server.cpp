@@ -2,22 +2,17 @@
 #include <Windows.h>
 #include "Server.h"
 #include "Constant.h"
+#include "StopCommand.h"
 
 using namespace std;
 
 namespace Role {
-
-	void Server::PrintBalance()
-	{
-		std::cout << "server" << Server::GetBalance() << endl;
-	}
 
 	void Server::WaitMessageFromClient()
 	{
         HANDLE hPipe;
         char buffer[BUFSIZE];  /////////
         DWORD dwRead;
-
 
         hPipe = CreateNamedPipe(ToServerPipeNamed,
             PIPE_ACCESS_DUPLEX, // read/write access 
@@ -28,14 +23,13 @@ namespace Role {
             NMPWAIT_USE_DEFAULT_WAIT, // client time-out 
             NULL);
 
-
         if (hPipe == INVALID_HANDLE_VALUE)
         {
             printf("CreateNamedPipe failed, GLE=%d.\n", GetLastError());
             return;
         }
         
-        
+        printf("Start Wait Meesage from client...\n");
 
         while (hPipe != INVALID_HANDLE_VALUE)
         {
@@ -50,27 +44,59 @@ namespace Role {
                     buffer[dwRead] = '\0';
 
                     /* do something with data in buffer */
-                    printf("%s\n", buffer);
+                    string info = RegisterPlayer(buffer);
+                    SendMessageToClient(info);
+                    cout << info <<endl;
                 }
             }
-
             DisconnectNamedPipe(hPipe);
         }
 	}
 
-	void Server::SendMessageToClient() 
+	void Server::SendMessageToClient(string message) 
 	{
+        HANDLE hPipe;
+        DWORD dwWritten;
+        hPipe = CreateFile(ToClientPipeNamed,
+            GENERIC_READ | GENERIC_WRITE,
+            0, // no sharing 
+            NULL, // default security attributes
+            OPEN_EXISTING, // opens existing pipe 
+            0,      // default attributes 
+            NULL);  // no template file 
 
+        if (hPipe != INVALID_HANDLE_VALUE)
+        {
+            WriteFile(hPipe,
+                message.c_str(),
+                message.length(),   // = length of string + terminating '\0' !!!
+                &dwWritten,
+                NULL);
+
+            CloseHandle(hPipe);
+        }
 	}
+
+    std::string Server::RegisterPlayer(std::string playerName)
+    {    
+        unordered_map<string, int>::iterator it = playerTable.find(playerName);
+        if (it == playerTable.end())
+        {
+            playerTable[playerName] = 1;
+            return "Register successfully. Player:"+playerName+"";
+        }
+        else {
+            return "Register fail. Player:" + playerName + " Already Exsist.";
+        }
+    }
 
 	Server::Server()
 	{
-		Server::WaitMessageFromClient();
+        waitCommnuicateThread = thread(&Server::WaitMessageFromClient,this);
+        handler.registerCommand("stop", new StopCommand(this));
 	}
 	Server::~Server()
 	{
 		cout << "Destruct Server" << endl;
-	}
-	
-	
+	}	
 }

@@ -140,15 +140,22 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Client.cpp" />
+    <ClCompile Include="CommandHandler.cpp" />
+    <ClCompile Include="ICommand.h" />
     <ClCompile Include="IRole.cpp" />
     <ClCompile Include="NamedPipePractice.cpp" />
+    <ClCompile Include="SendMessageCommand.cpp" />
     <ClCompile Include="Server.cpp" />
+    <ClCompile Include="StopCommand.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Client.h" />
+    <ClInclude Include="CommandHandler.h" />
     <ClInclude Include="Constant.h" />
     <ClInclude Include="IRole.h" />
+    <ClInclude Include="SendMessageCommand.h" />
     <ClInclude Include="Server.h" />
+    <ClInclude Include="StopCommand.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

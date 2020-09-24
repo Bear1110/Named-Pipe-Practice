@@ -1,5 +1,6 @@
 #pragma once
 #include "IRole.h"
+#include <unordered_map>
 
 #ifndef _Server_
 #define _Server_
@@ -11,11 +12,12 @@ namespace Role {
     public:
         Server();
         ~Server();
-        void PrintBalance();
 
     private:
+        std::unordered_map<std::string, int> playerTable;
         void WaitMessageFromClient();
-        void SendMessageToClient();
+        void SendMessageToClient(std::string message);
+        std::string RegisterPlayer(std::string);
     };
 }
 #endif

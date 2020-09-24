@@ -19,6 +19,24 @@
     <Filter Include="Source Files\Role">
       <UniqueIdentifier>{de65e89d-cf6c-4107-9a72-3a1966d0a8f4}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Command">
+      <UniqueIdentifier>{51af47d2-5a95-4220-b4f2-97412b0900d3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Command">
+      <UniqueIdentifier>{72c2c192-ca56-4ad5-a5fb-1c6dffba5f9d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Command\ServerCommand">
+      <UniqueIdentifier>{a4cbf426-a32c-44c2-95da-d18b01a107de}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Command\ClientCommand">
+      <UniqueIdentifier>{4e44442f-5750-43e2-b961-631060df0cfe}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Command\ServerCommand">
+      <UniqueIdentifier>{22b3270d-5614-4ab0-b277-653edb83b8fb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Command\ClientCommand">
+      <UniqueIdentifier>{c00e0a33-8508-4215-9130-21bf97b8ea28}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="NamedPipePractice.cpp">
@@ -33,6 +51,18 @@
     <ClCompile Include="Server.cpp">
       <Filter>Source Files\Role</Filter>
     </ClCompile>
+    <ClCompile Include="CommandHandler.cpp">
+      <Filter>Source Files\Command</Filter>
+    </ClCompile>
+    <ClCompile Include="ICommand.h">
+      <Filter>Header Files\Command</Filter>
+    </ClCompile>
+    <ClCompile Include="StopCommand.cpp">
+      <Filter>Source Files\Command</Filter>
+    </ClCompile>
+    <ClCompile Include="SendMessageCommand.cpp">
+      <Filter>Source Files\Command\ClientCommand</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Constant.h">
@@ -46,6 +76,15 @@
     </ClInclude>
     <ClInclude Include="IRole.h">
       <Filter>Header Files\Role</Filter>
+    </ClInclude>
+    <ClInclude Include="CommandHandler.h">
+      <Filter>Header Files\Command</Filter>
+    </ClInclude>
+    <ClInclude Include="StopCommand.h">
+      <Filter>Header Files\Command</Filter>
+    </ClInclude>
+    <ClInclude Include="SendMessageCommand.h">
+      <Filter>Header Files\Command\ClientCommand</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

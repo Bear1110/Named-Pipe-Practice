@@ -9,13 +9,12 @@ namespace Role {
         public IRole
     {
     public:
+        
         Client();
         ~Client();
-        void PrintBalance();
-    private:
-        void WaitUserInput();
         void SendMessageToServer(std::string message);
-        void WaitServerResponse();
+    private:
+        void WaitMessageFromServer();
     };
 }
 

@@ -1,17 +1,24 @@
 #pragma once
 #ifndef _IRole_
 #define _IRole_
-
+#include "CommandHandler.h"
+#include <thread>
 
 namespace Role {
 	class IRole
 	{
 	public:
-		double GetBalance();   // Obtain balance.
-		virtual void PrintBalance() = 0;   // Pure virtual function.
+		std::thread waitInputThread;
+		std::thread waitCommnuicateThread;
+
+		void StartWaitUserInput();   
 		virtual ~IRole() = 0;
+		// Pure virtual function. virtual void PrintBalance() = 0; 
+		bool stop = false;
+	protected:
+		Command::CommandHandler handler;
 	private:
-		//double _balance;
+		void continueWaitInputToCmd();
 	};
 }
 
