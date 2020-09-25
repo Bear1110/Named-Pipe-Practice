@@ -63,6 +63,7 @@ namespace Role {
 
 			if (fConnected)   // wait for someone to connect to the pipe
 			{
+				//read data from pipe. when buffer filled, pritf, and continue to read data until pipe end.
 				while (ReadFile(hPipe, buffer, sizeof(buffer) - 1, &dwRead, NULL) != FALSE)
 				{
 					/* add terminating zero */
