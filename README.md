@@ -18,7 +18,7 @@ For Now it divide to server and client.There is different commad for each other.
 ### Server
 |Command| Description| 
 | - | - |
-|stop| Stop the server.|
+|exit| Stop the server.|
 
 ### Client
 |Command| Description| 
