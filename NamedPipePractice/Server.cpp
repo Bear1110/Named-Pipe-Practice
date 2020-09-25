@@ -2,7 +2,6 @@
 #include <Windows.h>
 #include "Server.h"
 #include "Constant.h"
-#include "StopCommand.h"
 
 using namespace std;
 
@@ -93,7 +92,6 @@ namespace Role {
 	Server::Server()
 	{
         waitCommnuicateThread = thread(&Server::WaitMessageFromClient,this);
-        handler.registerCommand("stop", new StopCommand(this));
 	}
 	Server::~Server()
 	{

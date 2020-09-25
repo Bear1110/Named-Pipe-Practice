@@ -1,5 +1,6 @@
 #include "IRole.h"
 #include <iostream>
+#include "ExitCommand.h"
 
 using namespace std;
 
@@ -8,6 +9,11 @@ namespace Role {
 	void IRole::StartWaitUserInput()
 	{
 		waitInputThread = thread(&IRole::continueWaitInputToCmd,this);
+	}
+
+	IRole::IRole()
+	{
+		handler.registerCommand("exit", new ExitCommand(this));
 	}
 
 	void IRole::continueWaitInputToCmd()

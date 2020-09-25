@@ -12,6 +12,7 @@ namespace Role {
 		std::thread waitCommnuicateThread;
 
 		void StartWaitUserInput();   
+		IRole();
 		virtual ~IRole() = 0;
 		// Pure virtual function. virtual void PrintBalance() = 0; 
 		bool stop = false;

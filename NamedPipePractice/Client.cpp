@@ -2,7 +2,6 @@
 #include <windows.h>
 #include "Client.h"
 #include "Constant.h"
-#include "StopCommand.h"
 #include "SendMessageCommand.h"
 
 using namespace std;
@@ -79,7 +78,6 @@ namespace Role {
 
 	Client::Client()
 	{
-		handler.registerCommand("stop", new StopCommand(this));
 		handler.registerCommand("register", new SendMessageCommand(this));
 		waitCommnuicateThread = thread(&Client::WaitMessageFromServer, this);
 	}

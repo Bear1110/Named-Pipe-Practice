@@ -2,14 +2,14 @@
 #include "ICommand.h"
 #include "IRole.h"
 
-#ifndef _StopCommand_
-#define _StopCommand_
+#ifndef _ExitCommand_
+#define _ExitCommand_
 
-class StopCommand :
+class ExitCommand :
     public ICommand
 {
 public:    
-    StopCommand(Role::IRole *role);
+    ExitCommand(Role::IRole *role);
     void execute(std::vector<std::string>);
 private:
     Role::IRole* role;

@@ -146,7 +146,7 @@
     <ClCompile Include="NamedPipePractice.cpp" />
     <ClCompile Include="SendMessageCommand.cpp" />
     <ClCompile Include="Server.cpp" />
-    <ClCompile Include="StopCommand.cpp" />
+    <ClCompile Include="ExitCommand.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Client.h" />
@@ -155,7 +155,7 @@
     <ClInclude Include="IRole.h" />
     <ClInclude Include="SendMessageCommand.h" />
     <ClInclude Include="Server.h" />
-    <ClInclude Include="StopCommand.h" />
+    <ClInclude Include="ExitCommand.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

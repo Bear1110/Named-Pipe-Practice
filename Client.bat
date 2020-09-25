@@ -1,0 +1,1 @@
+start /b Debug\NamedPipePractice.exe /client
