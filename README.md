@@ -6,9 +6,11 @@ Please use **Visual Studio** to build the code.
 After built, it generate exe file in the `Debug/NamedPipePractice.exe`
 
 ## How to run
-1. Please launch `cmd.exe` and move (`cd`) to where you place the `NamedPipePractice.exe`
-2. execute the command `NamedPipePractice.exe /server` as a server. 
-   Otherwise,  `NamedPipePractice.exe /client` as a client.
+After you build. Please launch the `bat` file.
+
+For Client `Client.bat`
+
+For Server `Server.bat`
    
 ## Commands.
 For Now it divide to server and client.There is different commad for each other.
@@ -21,5 +23,5 @@ For Now it divide to server and client.There is different commad for each other.
 ### Client
 |Command| Description| 
 | - | - |
-|stop| Stop the client.|
+|exit| Stop the client.|
 |register [playerName]| Register a player to server.|
