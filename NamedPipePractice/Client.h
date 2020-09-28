@@ -1,12 +1,12 @@
 #pragma once
-#include "IRole.h"
+#include "BaseRole.h"
 
 #ifndef _Client_
 #define _Client_
 
 namespace Role {
     class Client :
-        public IRole
+        public BaseRole
     {
     public:
         

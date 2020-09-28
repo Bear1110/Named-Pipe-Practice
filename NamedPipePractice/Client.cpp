@@ -16,11 +16,11 @@ namespace Role {
 		DWORD dwWritten;
 		hPipe = CreateFile(ToServerPipeNamed,
 			GENERIC_READ | GENERIC_WRITE,
-			0, // no sharing 
+			0, // no sharing
 			NULL, // default security attributes
-			OPEN_EXISTING, // opens existing pipe 
-			0,      // default attributes 
-			NULL);  // no template file 
+			OPEN_EXISTING, // opens existing pipe
+			0,      // default attributes
+			NULL);  // no template file
 
 		if (hPipe != INVALID_HANDLE_VALUE)
 		{
@@ -42,12 +42,12 @@ namespace Role {
 		DWORD dwRead;
 
 		hPipe = CreateNamedPipe(ToClientPipeNamed,
-			PIPE_ACCESS_DUPLEX, // read/write access 
+			PIPE_ACCESS_DUPLEX, // read/write access
 			PIPE_TYPE_BYTE | PIPE_READMODE_BYTE | PIPE_WAIT,   // FILE_FLAG_FIRST_PIPE_INSTANCE is not needed but forces CreateNamedPipe(..) to fail if the pipe already exists...
-			1,       // max. instances  
-			BUFSIZE, // output buffer size 
-			BUFSIZE, // input buffer size 
-			NMPWAIT_USE_DEFAULT_WAIT, // client time-out 
+			1,       // max. instances
+			BUFSIZE, // output buffer size
+			BUFSIZE, // input buffer size
+			NMPWAIT_USE_DEFAULT_WAIT, // client time-out
 			NULL);
 
 		if (hPipe == INVALID_HANDLE_VALUE)

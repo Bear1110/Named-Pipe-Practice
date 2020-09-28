@@ -1,5 +1,5 @@
 #include <iostream>
-#include "IRole.h"
+#include "BaseRole.h"
 #include "Server.h"
 #include "Client.h"
 #include "Constant.h"
@@ -10,17 +10,17 @@ int main(int argc, char* argv[])
         std::cout << "Less the Parameter \""+ serverCommand +"\" Or \""+ clientCommand +"\"";
         return 1;
     }
-    std::string inputCommandForInit(argv[1]);           
+    std::string inputCommandForInit(argv[1]);
 
     if (serverCommand.compare(inputCommandForInit) == 0) {
-        Role::IRole* server = new Role::Server();
+        Role::BaseRole* server = new Role::Server();
         server->StartWaitUserInput();
         server->waitInputThread.join();
         //server->waitCommnuicateThread.join();
         //delete server;
     }
     else if (clientCommand.compare(inputCommandForInit) == 0) {
-        Role::IRole* client = new Role::Client();
+        Role::BaseRole* client = new Role::Client();
         client->StartWaitUserInput();
         client->waitInputThread.join();
         //delete client;

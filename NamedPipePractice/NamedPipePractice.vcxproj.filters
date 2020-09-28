@@ -45,9 +45,6 @@
     <ClCompile Include="Client.cpp">
       <Filter>Source Files\Role</Filter>
     </ClCompile>
-    <ClCompile Include="IRole.cpp">
-      <Filter>Source Files\Role</Filter>
-    </ClCompile>
     <ClCompile Include="Server.cpp">
       <Filter>Source Files\Role</Filter>
     </ClCompile>
@@ -63,6 +60,9 @@
     <ClCompile Include="ExitCommand.cpp">
       <Filter>Source Files\Command</Filter>
     </ClCompile>
+    <ClCompile Include="BaseRole.cpp">
+      <Filter>Source Files\Role</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Constant.h">
@@ -74,9 +74,6 @@
     <ClInclude Include="Server.h">
       <Filter>Header Files\Role</Filter>
     </ClInclude>
-    <ClInclude Include="IRole.h">
-      <Filter>Header Files\Role</Filter>
-    </ClInclude>
     <ClInclude Include="CommandHandler.h">
       <Filter>Header Files\Command</Filter>
     </ClInclude>
@@ -85,6 +82,9 @@
     </ClInclude>
     <ClInclude Include="ExitCommand.h">
       <Filter>Header Files\Command</Filter>
+    </ClInclude>
+    <ClInclude Include="BaseRole.h">
+      <Filter>Header Files\Role</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

@@ -1,4 +1,4 @@
-#include "IRole.h"
+#include "BaseRole.h"
 #include <iostream>
 #include "ExitCommand.h"
 
@@ -6,17 +6,17 @@ using namespace std;
 
 namespace Role {
 
-	void IRole::StartWaitUserInput()
+	void BaseRole::StartWaitUserInput()
 	{
-		waitInputThread = thread(&IRole::continueWaitInputToCmd,this);
+		waitInputThread = thread(&BaseRole::continueWaitInputToCmd,this);
 	}
 
-	IRole::IRole()
+	BaseRole::BaseRole()
 	{
 		handler.registerCommand("exit", new ExitCommand(this));
 	}
 
-	void IRole::continueWaitInputToCmd()
+	void BaseRole::continueWaitInputToCmd()
 	{
 		cout << "Successfully! Please input command.\n";
 		while (true)
@@ -30,7 +30,7 @@ namespace Role {
 		}
 	}
 
-	IRole::~IRole() {
-		cout << "Destruct IRole" << endl;
-	}	
+	BaseRole::~BaseRole() {
+		cout << "Destruct BaseRole" << endl;
+	}
 }
