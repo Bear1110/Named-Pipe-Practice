@@ -11,7 +11,7 @@ namespace Role {
     {
     public:
         Server();
-        ~Server();
+        ~Server() override;
     private:
         std::unordered_map<std::string, int> playerTable;
         void WaitMessageFromClient();

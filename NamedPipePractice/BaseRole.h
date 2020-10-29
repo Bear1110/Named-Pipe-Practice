@@ -10,12 +10,12 @@ namespace Role {
 	public:
 		std::thread waitInputThread;
 		std::thread waitCommnuicateThread;
+		bool stop = false;
 
 		void StartWaitUserInput();
 		BaseRole();
 		virtual ~BaseRole() = 0;
-		// Pure virtual function. virtual void PrintBalance() = 0;
-		bool stop = false;
+
 	protected:
 		Command::CommandHandler handler;
 	private:

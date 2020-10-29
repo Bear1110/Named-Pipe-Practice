@@ -9,9 +9,9 @@ namespace Role {
         public BaseRole
     {
     public:
-        
+
         Client();
-        ~Client();
+        ~Client() override;
         void SendMessageToServer(std::string message);
     private:
         void WaitMessageFromServer();
